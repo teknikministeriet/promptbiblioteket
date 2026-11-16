@@ -77,7 +77,9 @@ const jsonLd = {
     {data.tags && data.tags.length > 0 && (
       <div class="flex flex-wrap gap-2 mb-6">
         {data.tags.map((tag: string) => (
-          <a href={`/tagg/${tag}/`} class="tag no-underline">{tag}</a>
+          <>
+            <a href={`/tagg/${tag}/`} class="tag no-underline">{tag}</a>{' '}
+          </>
         ))}
       </div>
     )}

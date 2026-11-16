@@ -9,7 +9,7 @@ const { promptText } = Astro.props;
 const highlighted = highlightPromptHeadings(promptText);
 ---
 <div class="prompt-block relative group">
-  <div class="flex items-center justify-between px-4 py-2 border-b" style="border-color: var(--prompt-border); background: var(--tm-surface);">
+  <div data-pagefind-ignore class="flex items-center justify-between px-4 py-2 border-b" style="border-color: var(--prompt-border); background: var(--tm-surface);">
     <span class="text-xs font-mono" style="color: var(--tm-muted);">Prompt</span>
     <button
       class="copy-btn"
