@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-17T12:26:29.010Z",
+  "generated_at": "2026-11-16T16:48:34.103Z",
   "categories": [
     {
       "id": "administration-ea",
@@ -2061,9 +2061,9 @@
             "vård"
           ],
           "tested_models": [
-            "claude-opus-4-7"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-17T00:00:00.000Z"
+          "tested_date": "2026-11-16T00:00:00.000Z"
         },
         {
           "slug": "overlamningsrapport",
