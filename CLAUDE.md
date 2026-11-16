@@ -95,7 +95,7 @@ Repot är **publikt** på GitHub sedan 2026-07-10. Allt som committas blir omede
 - **Typ:** Statisk sajt (Astro 7 + nginx), Pagefind för sökning
 - **Deploy:** `./scripts/deploy.sh`: manuell, verify → build → rsync
 - **SSL:** Let's Encrypt via Certbot
-- **Ingen CI/CD**: deploy sker från lokal maskin
+- **CI utan CD**: `.github/workflows/ci.yml` provar varje PR och push till main (verify, `npm audit`, bygge). Deploy sker fortfarande från lokal maskin
 
 ## Social card (Open Graph)
 
@@ -147,7 +147,7 @@ Konfig: `.github/dependabot.yml`. Minor och patch grupperas till en veckovis PR
 per ekosystem (måndag 07:00). Säkerhetsuppdateringar grupperas inte, de kommer
 som en PR per paket direkt när en advisory publiceras.
 
-Eftersom repot saknar CI måste varje PR testas lokalt före merge:
+Säkerhetsuppdateringarna kräver att "Dependabot security updates" är påslaget i repots inställningar (påslaget 2026-11-16). CI (`.github/workflows/ci.yml`) kör verify, `npm audit` och bygget på varje PR, så ett grönt CI ersätter den lokala testrundan för bygget. Kontrollera ändå antalet sidor i CI-loggen och kör den lokala rundan när CI är rött eller saknas:
 
 ```bash
 gh pr checkout <nr>

@@ -1,0 +1,56 @@
+# Provar varje PR (även Dependabots) och varje push till main.
+# Samma kontroller som den lokala testrutinen i CLAUDE.md: verify i roten,
+# npm audit och bygge i site/. Deploy sker fortfarande från lokal maskin.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  bygge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            site/package-lock.json
+
+      - name: Installera (rot)
+        run: npm ci
+
+      - name: Verify (alla prompts)
+        run: npm run verify
+
+      - name: Audit (rot)
+        run: npm audit --audit-level=moderate
+
+      - name: Installera (site)
+        working-directory: site
+        run: npm ci
+
+      - name: Audit (site)
+        working-directory: site
+        run: npm audit --audit-level=moderate
+
+      - name: Bygg sajten
+        working-directory: site
+        run: npm run build
+
+      - name: Kontrollera bygget
+        working-directory: site
+        run: |
+          n=$(find dist -name '*.html' | wc -l | tr -d ' ')
+          echo "HTML-sidor: $n"
+          test "$n" -ge 500
+          test -f dist/pagefind/pagefind-entry.json

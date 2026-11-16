@@ -5,7 +5,8 @@
 # egen granskning.
 #
 # Grupperingen gäller ENBART version updates. En grupp utan `applies-to`
-# defaultar till version-updates, så säkerhetsuppdateringar kommer alltid
+# defaultar till version-updates, så säkerhetsuppdateringar (påslagna i repots
+# inställningar, "Dependabot security updates", sedan 2026-11-16) kommer alltid
 # som en PR per paket och landar direkt när en advisory publiceras, inte
 # på måndagsschemat. Det är avsiktligt: säkerhetsfixar ska kunna mergas
 # en och en utan att vänta på resten av batchen.
