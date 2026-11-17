@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-17T15:37:36.301Z",
+  "generated_at": "2026-11-17T15:54:37.217Z",
   "categories": [
     {
       "id": "administration-ea",
@@ -1720,9 +1720,9 @@
             "offert"
           ],
           "tested_models": [
-            "claude-opus-4-7"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-17T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "saljmail-kalluppsok",
@@ -1837,7 +1837,7 @@
         },
         {
           "slug": "feedback-pa-elevtext",
-          "title": "Feedback på elevtext: konstruktiv och enligt kunskapskrav",
+          "title": "Feedback på elevtext: konstruktiv och kopplad till betygskriterierna",
           "file": "utbildning-pedagogik/feedback-pa-elevtext.md",
           "rating": 4.3,
           "tags": [
@@ -1848,9 +1848,9 @@
             "lärare"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "forbattra-din-prompt",
