@@ -2,14 +2,19 @@
 title: "Smärtskattning: strukturerad dokumentation enligt VAS/NRS/Abbey"
 slug: smartskattning-dokumentation
 category: vard-omsorg
-source_url: https://www.socialstyrelsen.se
-source_author: Socialstyrelsens nationella riktlinjer för vård vid smärta
+source_url: https://www.teknikministeriet.se
+source_author: Teknikministeriet
 source_lang: sv
 rating: 4.4
-version: "1.0"
+version: "1.1"
 tested_models:
-  - claude-haiku-4-5
-tested_date: 2026-04-18
+  - claude-opus-5-5
+tested_date: 2026-11-17
+updated_at: 2026-11-17
+changelog:
+  - version: "1.1"
+    date: 2026-11-17
+    change: "Obelagda gränsvärden och tider för omskattning ersatta med verksamhetens rutiner. Hänvisningen till Socialstyrelsens riktlinjer, som inte gick att belägga, borttagen. Omtestad."
 tags:
   - smärtskattning
   - VAS
@@ -21,7 +26,7 @@ tags:
 
 ## Syfte
 
-Strukturerar smärtskattning och dokumentation av åtgärd och utvärdering. Väljer rätt instrument baserat på patientens kognitiva status och säkerställer uppföljning.
+Strukturerar smärtskattning och dokumentation av åtgärd och utvärdering. Väljer rätt instrument baserat på patientens kognitiva status och stödjer uppföljningen. [Vårdhandboken beskriver instrumenten](https://www.vardhandboken.se/vard-och-behandling/akut-bedomning-och-skattning/smartskattning-av-akut-och-postoperativ-smarta/instrument-for-bedomning-av-smarta/), och verksamheten bestämmer vilka som används.
 
 ## Prompt
 
@@ -45,10 +50,10 @@ Läkarordinationer: [stående smärtlindring, vid-behovs-dos, maxdygnsdos]
 
 # Regler
 - Använd rätt instrument för patientens kognitiva status, Abbey är för patienter som inte kan verbalisera
-- Dokumentera smärtskattning FÖRE och EFTER given åtgärd (40-60 min efter oral, 15-30 min efter subkutant)
+- Dokumentera smärtskattning FÖRE och EFTER given åtgärd, vid den tidpunkt som ordinationen eller verksamhetens rutin anger
 - Aldrig tolka patientens uttryck, citera om möjligt ("det bränner" inte "brännande smärta")
 - Skilj klart på observation (objektiv) och tolkning (subjektiv)
-- Vid smärta > 3 (VAS/NRS) eller Abbey > 7 krävs åtgärd eller dokumenterad orsak till varför inte
+- Följ verksamhetens rutin för vilket skattningsvärde som kräver åtgärd. Dokumentera åtgärden, eller skälet till att ingen åtgärd vidtogs. Hitta inte på gränsvärden
 - Svenska vårdtermer, anatomiska termer på svenska
 - Inga klargörande frågor, leverera färdigt resultat direkt
 
@@ -66,4 +71,8 @@ Läkarordinationer: [stående smärtlindring, vid-behovs-dos, maxdygnsdos]
 
 ## Användning
 
-Kör prompten direkt efter smärtskattning och åtgärd, och igen efter utvärdering. Dokumentera alltid i ordinarie journalsystem enligt Socialstyrelsens riktlinjer, prompten ger strukturen, inte beslutet.
+Kör prompten direkt efter smärtskattning och åtgärd, och igen efter utvärdering. Dokumentera alltid i ordinarie journalsystem enligt verksamhetens rutiner, prompten ger strukturen, inte beslutet.
+
+## Testresultat
+
+- **Claude Opus 5.5:** ★★★★★: Testad med ett fiktivt fall (84-åring med demens på särskilt boende, Abbey Pain Scale 9 poäng). Höll isär observation och tolkning, angav Abbey-skalans egen indelning som instrumentets kategori och hänvisade gränsen för åtgärd och tiden för omskattning till verksamhetens rutin utan att hitta på siffror.

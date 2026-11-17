@@ -6,12 +6,15 @@ source_url: https://www.skatteverket.se/foretag/moms
 source_author: Skatteverket, Moms
 source_lang: sv
 rating: 4.3
-version: "1.1"
+version: "1.2"
 tested_models:
   - claude-opus-5-5
 tested_date: 2026-11-17
 updated_at: 2026-11-17
 changelog:
+  - version: "1.2"
+    date: 2026-11-17
+    change: "Hänvisningen till SAF-T, som inte gick att belägga som svenskt krav, ersatt med avstämning mot momsrapporten. Omtestad."
   - version: "1.1"
     date: 2026-11-17
     change: "Momsen på livsmedel anges som tillfälligt sänkt till 6 procent från 1 april 2026 till och med 31 december 2027. Omtestad."
@@ -68,7 +71,7 @@ Osäkra poster: [transaktioner där jag är osäker på moms-hanteringen]
 6. **Moms att betala eller återfå**: beräknad summa, kontroll mot bokföringen
 7. **Avvikelser och oklara poster**: lista med transaktioner som behöver dubbelkollas innan inskick
 8. **Kontrollfrågor**: 5-8 frågor för att validera att deklarationen är komplett (t.ex. "har alla kreditfakturor bokats korrekt?")
-9. **Checklista inför inskick**: punkter att verifiera: bokföring avstämd, moms stämmer med SAF-T, inga osäkra poster kvar
+9. **Checklista inför inskick**: punkter att verifiera: bokföring avstämd, momsrapporten i bokföringssystemet stämmer mot deklarationen, inga osäkra poster kvar
 10. **Sparande**: vilka verifikat ska sparas och hur länge (7 år för fysiska, 10 år för fastigheter)
 11. **Risk för Skatteverkets granskning**: signal om något i perioden avviker påtagligt jämfört med normalen
 ```
@@ -81,4 +84,4 @@ Momsen på livsmedel är tillfälligt sänkt från 12 till 6 procent från 1 apr
 
 ## Testresultat
 
-- **Claude Opus 5.5:** ★★★★★: Testad med två fiktiva fall (enskild firma med konsulttjänster och sylt). För kvartal 2 2026 redovisades sylten med 6 procent och för kvartal 1 2028 med 12 procent, eftersom den tillfälliga sänkningen gällde till och med 31 december 2027.
+- **Claude Opus 5.5:** ★★★★★: Testad med fiktiva fall (enskild firma med konsulttjänster och sylt). För kvartal 2 2026 redovisades sylten med 6 procent och för kvartal 1 2028 med 12 procent, eftersom den tillfälliga sänkningen gäller till och med 31 december 2027. Checklistan stämmer av momsrapporten i bokföringssystemet mot deklarationen ruta för ruta.

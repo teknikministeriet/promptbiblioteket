@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-17T15:54:37.217Z",
+  "generated_at": "2026-11-17T17:07:30.852Z",
   "categories": [
     {
       "id": "administration-ea",
@@ -252,9 +252,9 @@
             "årsredovisning"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "automatisera-avstamningssteg",
@@ -2149,9 +2149,9 @@
             "omvårdnad"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "vardplan-utkast",

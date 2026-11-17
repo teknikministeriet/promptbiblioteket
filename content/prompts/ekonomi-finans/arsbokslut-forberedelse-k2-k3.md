@@ -5,10 +5,15 @@ category: ekonomi-finans
 source_author: Teknikministeriet
 source_lang: sv
 rating: 4.3
-version: "1.0"
+version: "1.1"
 tested_models:
-  - claude-haiku-4-5
-tested_date: 2026-04-18
+  - claude-opus-5-5
+tested_date: 2026-11-17
+updated_at: 2026-11-17
+changelog:
+  - version: "1.1"
+    date: 2026-11-17
+    change: "Kontroll av om företaget får använda K2 tillagd, efter BFN:s ändrade tillämpningsområde från räkenskapsår som inleds efter 31 december 2025. Omtestad."
 tags:
   - årsbokslut
   - K2
@@ -41,6 +46,7 @@ Eventuella förändringar under året: [nyanställningar, nya avtal, ägarbyte, 
 
 # Regler
 - Följ svensk årsredovisningslag och Bokföringsnämndens allmänna råd
+- Kontrollera att valt regelverk är tillåtet. Från räkenskapsår som inleds efter 31 december 2025 får vissa företag inte längre använda K2 Årsredovisning, bland annat bostadsrättsföreningar och företag över vissa storleksgränser. Flagga om företaget kan vara ett av dem
 - Skilj tydligt mellan punkter som revisorn/redovisningskonsulten hanterar och punkter som ägaren/företagaren själv måste förbereda
 - Flagga deadlines enligt Skatteverket och Bolagsverket (inkomstdeklaration, årsredovisning)
 - Svenska belopp och datum
@@ -56,4 +62,8 @@ Eventuella förändringar under året: [nyanställningar, nya avtal, ägarbyte, 
 
 ## Användning
 
-Fyll i företagsform och välj rätt regelverk. Kör 2–3 månader före räkenskapsårets slut för bästa effekt. Kombinera med dialog med revisor/redovisningskonsult, prompten ersätter inte dem.
+Fyll i företagsform och välj rätt regelverk. Bokföringsnämnden har ändrat vilka företag som får använda K2 från räkenskapsår som inleds efter 31 december 2025, se [BFN:s sida om ändringen](https://www.bfn.se/andrat-tillampningsomrade-for-k2-arsredovisning-for-mindre-foretag/). Kör 2–3 månader före räkenskapsårets slut för bästa effekt. Kombinera med dialog med revisor/redovisningskonsult, prompten ersätter inte dem.
+
+## Testresultat
+
+- **Claude Opus 5.5:** ★★★★★: Testad med ett fiktivt fall (IT-konsultbolag AB med K2 och fem anställda, räkenskapsår 2026). Flaggade först att K2-behörigheten ska stämmas av mot BFN:s ändrade regler för räkenskapsår efter 31 december 2025 och listade bolagets siffror för jämförelsen, och gav sedan deadlines, checklista och vanliga misstag med K2.
