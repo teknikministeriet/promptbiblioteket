@@ -90,6 +90,9 @@ Repot är **publikt** på GitHub sedan 2026-07-10. Allt som committas blir omede
 ### 5. Deploy
 `./scripts/deploy.sh`: bygger och synkar till produktion.
 
+### Ändra en publicerad prompt
+När en prompt är publicerad är `.md`-filen i `content/prompts/` originalet. JSON-filen i `pipeline/inbox/` är bara indata för nya prompts och kan vara äldre än den publicerade texten (eller saknas). Pipelinen vägrar skriva över en befintlig `.md` ("Filen finns redan"). Rätta därför i `.md`-filen och radera den aldrig för att generera om den från JSON. Höj `version`, lägg till en rad i `changelog`, testa om och uppdatera `## Testresultat`, kör sedan `npm run manifest`.
+
 ## Hosting och deploy
 - **Server:** bahnhof-prod (`/var/www/prompts.teknikministeriet.se`)
 - **Typ:** Statisk sajt (Astro 7 + nginx), Pagefind för sökning
@@ -152,7 +155,7 @@ Säkerhetsuppdateringarna kräver att "Dependabot security updates" är påslage
 ```bash
 gh pr checkout <nr>
 cd site && npm install && npm audit   # ska ge 0 vulnerabilities
-npm run build                         # ska ge 511 HTML-sidor, 133 indexerade
+npm run build                         # ska ge 512 HTML-sidor (inklusive Search Console-filen), 133 indexerade
 ```
 
 Dependabot bevakar **två** kataloger, roten och `/site`. En PR mot rotens
@@ -172,7 +175,7 @@ eget steg som repo-ägaren tar ställning till, inte något en session gör
 oombedd:
 
 ```bash
-gh pr review <nr> --approve --body "Testad lokalt: npm audit 0, build 511/133."
+gh pr review <nr> --approve --body "Testad lokalt: npm audit 0, build 512/133."
 gh pr merge <nr> --squash --delete-branch
 ```
 
