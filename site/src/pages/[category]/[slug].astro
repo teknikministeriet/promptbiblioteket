@@ -203,8 +203,9 @@ const jsonLd = {
     text-decoration: underline;
   }
 
-  /* Hide the prompt code block from rendered markdown (we show it separately) */
-  .prose-content :global(pre) {
+  /* Hide the prompt code block and its heading from rendered markdown (we show it separately) */
+  .prose-content :global(pre),
+  .prose-content :global(h2#prompt) {
     display: none;
   }
 
