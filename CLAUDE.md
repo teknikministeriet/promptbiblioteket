@@ -249,6 +249,8 @@ Verify kör 9 kontroller per prompt:
 
 Frontmatter valideras separat: obligatoriska fält (title, slug, category, tags), kategori-ID, rating-intervall, slug-format.
 
+Taggar kontrolleras över hela biblioteket, även med `--category`: två taggar som bara skiljer sig i stora och små bokstäver ("HR" och "hr") ger fel. Bygget på macOS skriver båda till samma mapp, så på servern ger den ena taggsidan 404 och den andra visar bara en del av sina prompts. Skriv taggar med gemener utom egennamn som redan finns i den formen.
+
 ## Prompt-fil format
 
 Varje .md i content/prompts/ har YAML-frontmatter:
