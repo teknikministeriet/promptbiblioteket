@@ -98,7 +98,7 @@ När en prompt är publicerad är `.md`-filen i `content/prompts/` originalet. J
 - **Typ:** Statisk sajt (Astro 7 + nginx), Pagefind för sökning
 - **Deploy:** `./scripts/deploy.sh`: manuell, verify → build → rsync
 - **SSL:** Let's Encrypt via Certbot
-- **CI utan CD**: `.github/workflows/ci.yml` provar varje PR och push till main (verify, `npm audit`, bygge). Deploy sker fortfarande från lokal maskin
+- **CI utan CD**: `.github/workflows/ci.yml` provar varje PR och push till main (verify, säkerhetsgranskning med `scripts/audit.js`, bygge). Deploy sker fortfarande från lokal maskin
 
 ## Social card (Open Graph)
 
@@ -150,11 +150,11 @@ Konfig: `.github/dependabot.yml`. Minor och patch grupperas till en veckovis PR
 per ekosystem (måndag 07:00). Säkerhetsuppdateringar grupperas inte, de kommer
 som en PR per paket direkt när en advisory publiceras.
 
-Säkerhetsuppdateringarna kräver att "Dependabot security updates" är påslaget i repots inställningar (påslaget 2026-11-16). CI (`.github/workflows/ci.yml`) kör verify, `npm audit` och bygget på varje PR, så ett grönt CI ersätter den lokala testrundan för bygget. Kontrollera ändå antalet sidor i CI-loggen och kör den lokala rundan när CI är rött eller saknas:
+Säkerhetsuppdateringarna kräver att "Dependabot security updates" är påslaget i repots inställningar (påslaget 2026-11-16). CI (`.github/workflows/ci.yml`) kör verify, säkerhetsgranskningen och bygget på varje PR, så ett grönt CI ersätter den lokala testrundan för bygget. Kontrollera ändå antalet sidor i CI-loggen och kör den lokala rundan när CI är rött eller saknas:
 
 ```bash
 gh pr checkout <nr>
-cd site && npm install && npm audit   # ska ge 0 vulnerabilities
+cd site && npm install && node ../scripts/audit.js .   # ska ge 0 blockerande
 npm run build                         # ska ge 512 HTML-sidor (inklusive Search Console-filen), 133 indexerade
 ```
 
@@ -164,7 +164,7 @@ Dependabot bevakar **två** kataloger, roten och `/site`. En PR mot rotens
 frontmatter-parsern:
 
 ```bash
-npm install && npm audit              # ska ge 0 vulnerabilities
+npm install && node scripts/audit.js .   # ska ge 0 blockerande
 npm run verify                        # ska ge 0 fel
 ```
 
@@ -175,7 +175,7 @@ eget steg som repo-ägaren tar ställning till, inte något en session gör
 oombedd:
 
 ```bash
-gh pr review <nr> --approve --body "Testad lokalt: npm audit 0, build 512/133."
+gh pr review <nr> --approve --body "Testad lokalt: audit 0 blockerande, build 512/133."
 gh pr merge <nr> --squash --delete-branch
 ```
 
@@ -190,7 +190,7 @@ Tre fallgropar, alla bekräftade i skarpt läge:
   innan de mergas. `MERGEABLE` från GitHub betyder bara att det saknas
   textkonflikt, inte att innehållet är säkert: en äldre `package-lock.json`
   kan rulla tillbaka redan åtgärdade sårbarheter. Kontrollera alltid med
-  `npm audit` på PR-branchen, inte bara att bygget går igenom.
+  `scripts/audit.js` på PR-branchen, inte bara att bygget går igenom.
 - **Merga inte i nummerordning när flera säkerhets-PR:er ligger öppna.** En
   grupp-PR som dependabot rebasat kan redan täcka de enskilda PR:erna: i
   september 2026 bar grupp-PR:en astro 7.3.1, sharp 0.35.4 och js-yaml 4.3.2,
@@ -211,6 +211,25 @@ Tre fallgropar, alla bekräftade i skarpt läge:
   tillbaka dem för samma nycklar som i HEAD, kontrollera värdet mot
   `npm view <paket>@<version> libc` och kör `npm ci` så att disken matchar
   låsfilen. `git diff site/package-lock.json | grep -c '"libc"'` ska ge 0.
+
+### Säkerhetsgranskning med tidsbegränsade undantag
+
+`scripts/audit.js <katalog>` kör `npm audit` och stoppar på varje advisory med
+allvarsgrad moderate eller högre, utom de som står i
+`scripts/audit-undantag.json`. Ett undantag får bara läggas när ingen rättad
+version finns, och då gäller:
+
+- **Ett GHSA-id per undantag, aldrig ett paketnamn.** Nästa advisory i samma
+  paket ska stoppa CI. Skriptet vägrar allt som inte är ett GHSA-id.
+- **Skäl och slutdatum, högst cirka fyra veckor.** Efter `giltig_till` blir CI
+  rött igen. Lägg en påminnelse några dagar före slutdatumet.
+- **Ta bort undantaget när rättningen finns**, i samma PR som uppdaterar
+  paketet. Kontrollera `npm ls <paket> --all` först: samma paket kan ligga i
+  flera versioner (picomatch fanns 2026-11 både som 4.0.7 och som 2.3.2 under
+  anymatch), och en rättning i den ena versionen räcker inte.
+
+CI-loggen visar varje aktivt undantag och dess slutdatum. `npm audit` direkt
+visar fortfarande de undantagna fynden, så jämför med skriptet, inte med den.
 
 ## Kvalitetskontroller (verify)
 

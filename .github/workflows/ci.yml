@@ -32,16 +32,16 @@ jobs:
       - name: Verify (alla prompts)
         run: npm run verify
 
+      # npm audit med tidsbegränsade undantag per GHSA-id, se scripts/audit-undantag.json.
       - name: Audit (rot)
-        run: npm audit --audit-level=moderate
+        run: node scripts/audit.js .
 
       - name: Installera (site)
         working-directory: site
         run: npm ci
 
       - name: Audit (site)
-        working-directory: site
-        run: npm audit --audit-level=moderate
+        run: node scripts/audit.js site
 
       - name: Bygg sajten
         working-directory: site

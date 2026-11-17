@@ -1,0 +1,9 @@
+[
+  {
+    "id": "GHSA-fc5q-39xc-vjpf",
+    "paket": "picomatch",
+    "skal": "ReDoS i picomatch <= 4.0.7, ingen rättad version släppt. Paketet körs bara i bygget med våra egna glob-mönster, aldrig mot besökares indata, och sajten är statisk.",
+    "infort": "2026-11-17",
+    "giltig_till": "2026-12-15"
+  }
+]
