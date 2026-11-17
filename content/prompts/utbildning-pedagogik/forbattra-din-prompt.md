@@ -15,7 +15,7 @@ tags:
   - metaprompt
   - prompting
   - förbättring
-  - AI-verktyg
+  - ai-verktyg
   - effektivitet
 ---
 

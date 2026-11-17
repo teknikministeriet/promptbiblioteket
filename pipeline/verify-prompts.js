@@ -275,6 +275,29 @@ function findPromptFiles(dir, category) {
   return files;
 }
 
+// Taggar som bara skiljer sig i skiftläge ("HR" och "hr") blir samma mapp när
+// sajten byggs på macOS men olika adresser på servern, så en taggsida ger 404
+// och den andra visar bara ena halvan av sina prompts.
+function findTagCaseConflicts(files) {
+  const byKey = new Map();
+  for (const file of files) {
+    let data;
+    try {
+      data = matter(fs.readFileSync(file.path, 'utf8')).data;
+    } catch {
+      continue; // frontmatter-felet rapporteras redan per fil
+    }
+    for (const tag of Array.isArray(data.tags) ? data.tags : []) {
+      const key = String(tag).toLowerCase();
+      if (!byKey.has(key)) byKey.set(key, new Map());
+      const variants = byKey.get(key);
+      if (!variants.has(tag)) variants.set(tag, []);
+      variants.get(tag).push(`${file.category}/${file.filename}`);
+    }
+  }
+  return [...byKey.values()].filter(variants => variants.size > 1);
+}
+
 async function main() {
   console.log('Prompt Quality Control, Promptbiblioteket\n');
   console.log('='.repeat(70));
@@ -394,6 +417,19 @@ async function main() {
     console.log('');
   }
 
+  // Taggkrockar gäller hela biblioteket, även när en kategori filtreras
+  const tagConflicts = findTagCaseConflicts(findPromptFiles(CONTENT_DIR));
+  if (tagConflicts.length > 0) {
+    console.log('Taggar som bara skiljer sig i stora och små bokstäver (ger trasiga taggsidor):');
+    for (const variants of tagConflicts) {
+      for (const [tag, where] of variants) {
+        console.log(`  [FEL] "${tag}": ${where.join(', ')}`);
+      }
+    }
+    console.log('');
+    totalErrors += tagConflicts.length;
+  }
+
   // Sammanfattning
   console.log('='.repeat(70));
   console.log('\nSammanfattning:\n');
@@ -431,4 +467,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { analyzePrompt, validateFrontmatter, extractPrompt, extractSections, findPromptFiles, QUALITY_CHECKS };
+module.exports = { analyzePrompt, validateFrontmatter, extractPrompt, extractSections, findPromptFiles, findTagCaseConflicts, QUALITY_CHECKS };

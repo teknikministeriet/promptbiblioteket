@@ -15,7 +15,7 @@ tags:
   - rekrytering
   - kompetensbaserad
   - bedömning
-  - HR
+  - hr
 ---
 ## Syfte
 

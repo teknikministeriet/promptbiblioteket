@@ -16,7 +16,7 @@ changelog:
     date: 2026-11-16
     change: "Kraven för hög risk i rekrytering gäller från 2 december 2027 efter förordning (EU) 2026/1744. Texten skiljer nu på det som gäller i dag och det som gäller från 2027. Omtestad."
 tags:
-  - AI-Act
+  - ai-act
   - rekrytering
   - transparens
   - GDPR

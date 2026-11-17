@@ -16,7 +16,7 @@ changelog:
     change: "Testad mot Claude Opus 5.5 och testresultat tillagt."
 tags:
   - exit-intervju
-  - HR
+  - hr
   - personalomsättning
   - organisation
   - kultur

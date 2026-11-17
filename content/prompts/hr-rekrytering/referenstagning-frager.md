@@ -13,7 +13,7 @@ tags:
   - referenstagning
   - rekrytering
   - intervju
-  - HR
+  - hr
   - bedömning
 ---
 

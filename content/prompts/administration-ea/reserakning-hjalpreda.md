@@ -18,7 +18,7 @@ changelog:
 tags:
   - reseräkning
   - traktamente
-  - Skatteverket
+  - skatteverket
   - administration
   - ekonomi
 ---

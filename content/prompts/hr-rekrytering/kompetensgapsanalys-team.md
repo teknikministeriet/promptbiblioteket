@@ -16,9 +16,9 @@ changelog:
     change: "Artikel 4 beskrivs enligt lydelsen efter förordning (EU) 2026/1744. Omtestad."
 tags:
   - kompetensgap
-  - HR
+  - hr
   - teamutveckling
-  - AI-Act
+  - ai-act
   - kompetensförsörjning
 ---
 

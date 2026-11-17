@@ -18,7 +18,7 @@ tags:
   - löneförhandling
   - lönesamtal
   - chef
-  - HR
+  - hr
   - lönesättning
 ---
 

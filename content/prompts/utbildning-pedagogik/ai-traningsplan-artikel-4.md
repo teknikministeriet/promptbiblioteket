@@ -20,7 +20,7 @@ tags:
   - utbildning
   - kompetensutveckling
   - ai-act
-  - AI-verktyg
+  - ai-verktyg
 ---
 ## Syfte
 

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-17T17:07:30.852Z",
+  "generated_at": "2026-11-17T22:12:57.102Z",
   "categories": [
     {
       "id": "administration-ea",
@@ -187,7 +187,7 @@
           "tags": [
             "reseräkning",
             "traktamente",
-            "Skatteverket",
+            "skatteverket",
             "administration",
             "ekonomi"
           ],
@@ -705,7 +705,7 @@
           "file": "hr-rekrytering/ai-rekrytering-kandidattransparens.md",
           "rating": 4.3,
           "tags": [
-            "AI-Act",
+            "ai-act",
             "rekrytering",
             "transparens",
             "GDPR",
@@ -723,7 +723,7 @@
           "rating": 4.2,
           "tags": [
             "exit-intervju",
-            "HR",
+            "hr",
             "personalomsättning",
             "organisation",
             "kultur"
@@ -757,9 +757,9 @@
           "rating": 4.2,
           "tags": [
             "kompetensgap",
-            "HR",
+            "hr",
             "teamutveckling",
-            "AI-Act",
+            "ai-act",
             "kompetensförsörjning"
           ],
           "tested_models": [
@@ -776,7 +776,7 @@
             "löneförhandling",
             "lönesamtal",
             "chef",
-            "HR",
+            "hr",
             "lönesättning"
           ],
           "tested_models": [
@@ -810,7 +810,7 @@
             "referenstagning",
             "rekrytering",
             "intervju",
-            "HR",
+            "hr",
             "bedömning"
           ],
           "tested_models": [
@@ -845,7 +845,7 @@
             "rekrytering",
             "kompetensbaserad",
             "bedömning",
-            "HR"
+            "hr"
           ],
           "tested_models": [
             "gemini-2.5-flash"
@@ -1794,7 +1794,7 @@
             "utbildning",
             "kompetensutveckling",
             "ai-act",
-            "AI-verktyg"
+            "ai-verktyg"
           ],
           "tested_models": [
             "claude-opus-5-5"
@@ -1862,7 +1862,7 @@
             "metaprompt",
             "prompting",
             "förbättring",
-            "AI-verktyg",
+            "ai-verktyg",
             "effektivitet"
           ],
           "tested_models": [
