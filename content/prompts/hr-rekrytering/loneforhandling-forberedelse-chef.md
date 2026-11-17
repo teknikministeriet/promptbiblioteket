@@ -5,10 +5,15 @@ category: hr-rekrytering
 source_author: Teknikministeriet
 source_lang: sv
 rating: 4.3
-version: "1.0"
+version: "1.1"
 tested_models:
-  - claude-haiku-4-5
-tested_date: 2026-04-18
+  - claude-opus-5-5
+tested_date: 2026-11-17
+updated_at: 2026-11-16
+changelog:
+  - version: "1.1"
+    date: 2026-11-16
+    change: "Föräldraledighet och lön hänvisar till föräldraledighetslagen 16 §. Omtestad."
 tags:
   - löneförhandling
   - lönesamtal
@@ -45,7 +50,7 @@ Speciella omständigheter: [t.ex. utökat ansvar, barnledig del av året, intern
 - Beakta kollektivavtalets minimilönenivåer och revisionsmodell
 - Ingen diskriminering på grund av kön, ålder, etnicitet, funktionsvariation, dokumentera beslutsgrund
 - Skilj tydligt på lön och engångsbelopp/bonus
-- Om medarbetaren varit föräldraledig: hänsyn enligt diskrimineringslagen
+- Om medarbetaren varit föräldraledig: lönesättningen får inte missgynna medarbetaren av skäl som har samband med föräldraledigheten (16 § föräldraledighetslagen)
 - Ge konkreta exempel på prestation, inte "hon är duktig"
 - Svenska utan tankstreck i brödtext
 
@@ -61,4 +66,8 @@ Speciella omständigheter: [t.ex. utökat ansvar, barnledig del av året, intern
 
 ## Användning
 
-Kör en vecka innan lönesamtalet. Ta fram marknadsdata från Unionen, Saco, eller branschorganisationer. Konsultera HR om kollektivavtalets revisionsmodell. Prompten ersätter inte lokala löneförhandlingar enligt kollektivavtal.
+Kör en vecka innan lönesamtalet. Ta fram marknadsdata från Unionen, Saco, eller branschorganisationer. Konsultera HR om kollektivavtalets revisionsmodell. Prompten ersätter inte lokala löneförhandlingar enligt kollektivavtal. Har medarbetaren varit föräldraledig gäller missgynnandeförbudet i [16 § föräldraledighetslagen](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/foraldraledighetslag-1995584_sfs-1995-584/).
+
+## Testresultat
+
+- **Claude Opus 5.5:** ★★★★★: Testad med ett fiktivt fall (senior utvecklare, föräldraledig fem månader). Bedömde bara den tid medarbetaren arbetade, hänvisade till 16 § föräldraledighetslagen och skilde lön från engångsbelopp.

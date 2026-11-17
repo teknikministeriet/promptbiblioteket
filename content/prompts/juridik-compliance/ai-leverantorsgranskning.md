@@ -6,10 +6,15 @@ source_url: https://www.teknikministeriet.se
 source_author: Teknikministeriet
 source_lang: sv
 rating: 4.3
-version: "1.0"
+version: "1.1"
 tested_models:
-  - claude-opus-4-7
-tested_date: 2026-04-18T00:00:00.000Z
+  - claude-opus-5-5
+tested_date: 2026-11-16T00:00:00.000Z
+updated_at: 2026-11-16
+changelog:
+  - version: "1.1"
+    date: 2026-11-16
+    change: "Påståenden om IMY som inte går att belägga borttagna. AI-förordningens datum för hög risk tillagda. Omtestad."
 tags:
   - ai-styrning
   - leverantör
@@ -19,16 +24,16 @@ tags:
 ---
 ## Syfte
 
-Strukturerar due diligence av AI-leverantör enligt GDPR, IMY:s vägledning och AI Act. Skapar underlag inför avtalsingång och för årlig uppföljning som IMY förväntar sig dokumenterad.
+Strukturerar due diligence av AI-leverantör utifrån GDPR och AI Act. Skapar underlag inför avtalsingång och en mall för återkommande uppföljning. Kravet på personuppgiftsbiträdesavtal står i GDPR artikel 28, och [IMY beskriver vad avtalet ska innehålla](https://www.imy.se/verksamhet/dataskydd/det-har-galler-enligt-gdpr/personuppgiftsansvariga-och-personuppgiftsbitraden/personuppgiftsbitradesavtal/).
 
 ## Prompt
 
 ```txt
 # Roll
-Du är compliance-rådgivare specialiserad på AI-leverantörer enligt GDPR, IMY:s vägledning och AI Act. Perspektiv: IMY frågar "när gjorde du senast granskning?" vid dataincident.
+Du är compliance-rådgivare specialiserad på AI-leverantörer enligt GDPR och AI Act. Perspektiv: organisationen ska kunna visa vilken granskning som gjorts och när, om en incident inträffar.
 
 # Uppgift
-Strukturera due diligence-granskning av AI-leverantör. Producera granskningsmall inför avtalsingång och checklista för årlig uppföljning.
+Strukturera due diligence-granskning av AI-leverantör. Producera granskningsmall inför avtalsingång och checklista för återkommande uppföljning.
 
 # Kontext
 AI-tjänst: [beskriv funktion: t.ex. kundservice-chatbot, kodgenerering, HR-verktyg]
@@ -44,9 +49,9 @@ Risknivå enligt AI Act: [förbjuden, hög, begränsad, minimal]
 - DPA (personuppgiftsbiträdesavtal) krävs när leverantören är personuppgiftsbiträde (GDPR Art 28)
 - Kontrollera: säkerhetscertifieringar, tredje parts audit, ursprung av träningsdata, underbiträden
 - Data utanför EU eller EES kräver Standard Contractual Clauses eller motsvarande
-- Årlig uppföljning enligt IMY, oftare vid hög risk
-- Dokumentera ALL granskning, IMY fokuserar på dokumentation vid incidentutredning
-- AI Act-krav tillkommer GDPR: hög risk-system kräver mer bevis från leverantör
+- Följ upp leverantören återkommande, till exempel årligen och oftare vid hög risk. Intervallet är organisationens eget val
+- Dokumentera ALL granskning, den personuppgiftsansvarige ska kunna visa att GDPR följs (artikel 5.2)
+- AI Act-krav tillkommer GDPR: hög risk-system kräver mer bevis från leverantör. Kraven för hög risk gäller från 2 december 2027 (Annex III) eller 2 augusti 2028 (Annex I) efter ändringen genom förordning (EU) 2026/1744
 - Ersätt inte jurist vid större upphandling eller komplex integration
 
 # Utdataformat
@@ -56,9 +61,13 @@ Risknivå enligt AI Act: [förbjuden, hög, begränsad, minimal]
 4. **AI-specifika frågor**: träningsdata, modelldokumentation, AI Act-efterlevnad
 5. **Underbiträden**: lista, godkännanderutin, avtalsvillkor
 6. **Kontinuitetsplan**: vad händer vid leverantörens incident, konkurs eller prisändring
-7. **Årlig granskningsmall**: dokumentation som produceras vid uppföljning
+7. **Mall för återkommande granskning**: dokumentation som produceras vid uppföljning
 ```
 
 ## Användning
 
-Genomför granskningen innan avtal tecknas. Dokumentera resultatet, IMY fokuserar på dokumentation vid incidentutredning. Årlig uppföljning är utgångspunkten, oftare vid hög-risksystem.
+Genomför granskningen innan avtal tecknas. Dokumentera resultatet, eftersom organisationen ska kunna visa att den följer GDPR. Ett årligt intervall för uppföljning är en rimlig utgångspunkt, oftare för system med hög risk.
+
+## Testresultat
+
+- **Claude Opus 5.5:** ★★★★★: Testad med ett fiktivt fall (transkribering av kundmöten, amerikansk leverantör, pilot utan biträdesavtal). Började med att piloten saknar biträdesavtal, listade minimikraven i artikel 28.3 och angav datumet för hög risk efter förordning (EU) 2026/1744.

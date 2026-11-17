@@ -6,10 +6,15 @@ source_url: https://www.socialstyrelsen.se/kunskapsstod-och-regler/regler-och-ri
 source_author: Socialstyrelsen, Samordnad individuell plan (SIP)
 source_lang: sv
 rating: 4.4
-version: "1.0"
+version: "1.1"
 tested_models:
-  - claude-haiku-4-5
-tested_date: 2026-04-18
+  - claude-opus-5-5
+tested_date: 2026-11-17
+updated_at: 2026-11-16
+changelog:
+  - version: "1.1"
+    date: 2026-11-16
+    change: "Socialtjänstlagen (2001:453) ersatt med socialtjänstlagen (2025:400) 10 kap. 8 §. Omtestad."
 tags:
   - SIP
   - samordning
@@ -20,13 +25,13 @@ tags:
 
 ## Syfte
 
-Förbereder SIP-möte med agenda, deltagarlista och mall för själva planen. Säkerställer att den enskilde är i centrum och att ansvar blir tydligt mellan huvudmän.
+Förbereder SIP-möte med agenda, deltagarlista och mall för själva planen. Sätter den enskilde i centrum och gör ansvaret tydligt mellan huvudmännen. Skyldigheten att upprätta en individuell plan står i [hälso- och sjukvårdslagen 16 kap. 4 §](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/halso-och-sjukvardslag-201730_sfs-2017-30/) och, sedan 1 juli 2025, i [socialtjänstlagen (2025:400) 10 kap. 8 §](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/socialtjanstlag-2025400_sfs-2025-400/), som ersatte socialtjänstlagen (2001:453).
 
 ## Prompt
 
 ```txt
 # Roll
-Du är sjuksköterska, biståndshandläggare, kurator eller koordinator som förbereder en Samordnad Individuell Plan (SIP) enligt Hälso- och sjukvårdslagen 16 kap 4 § och Socialtjänstlagen 2 kap 7 §. Perspektiv: den enskilde ska känna sig delaktig, inte överkörd av ett professionellt team. SIP är den enskildes plan, inte professionens.
+Du är sjuksköterska, biståndshandläggare, kurator eller koordinator som förbereder en Samordnad Individuell Plan (SIP) enligt hälso- och sjukvårdslagen (2017:30) 16 kap. 4 § och socialtjänstlagen (2025:400) 10 kap. 8 §. Perspektiv: den enskilde ska känna sig delaktig, inte överkörd av ett professionellt team. SIP är den enskildes plan, inte professionens.
 
 # Uppgift
 Strukturera förberedelsen inför SIP-möte: deltagare, dagordning, frågor att diskutera, samt en mall för själva planen som kan dokumenteras efter mötet.
@@ -38,11 +43,11 @@ Involverade verksamheter: [vårdcentral, sjukhus, kommunens socialtjänst, LSS, 
 Anhöriga/närstående: [deltar, deltar ej, deras roll]
 Skälet till SIP: [samordningsbrist, ny situation, omprövning, hemgång från sjukhus, annat]
 Tidigare SIP: [finns, finns inte, när senast]
-Den enskildes egna mål: [vad hen vill uppnå, vad som är viktigt]
+Den enskildes egna mål: [vad den enskilde vill uppnå, vad som är viktigt]
 Sekretessnivåer: [samtycke till informationsdelning inhämtat ja/nej/delvis]
 
 # Regler
-- Den enskilde ÄGER mötet, hen bestämmer agenda och vem som deltar, med stöd från initierande verksamhet
+- Den enskilde ÄGER mötet och bestämmer agenda och vem som deltar, med stöd från initierande verksamhet
 - Samtycke till informationsdelning krävs från den enskilde innan deltagare får information om varandras områden
 - Mötets resultat är en PLAN som dokumenteras hos båda huvudmän (hälso- och sjukvård OCH socialtjänst)
 - Skilj mellan VAD som ska göras (insats) och VEM som gör det (ansvarig verksamhet)
@@ -55,7 +60,7 @@ Sekretessnivåer: [samtycke till informationsdelning inhämtat ja/nej/delvis]
 1. **Bakgrund**: 2-3 meningar om den enskildes situation och varför SIP initieras
 2. **Samtyckesstatus**: vad den enskilde samtyckt till
 3. **Deltagare att bjuda in**: den enskilde, anhöriga, involverade verksamheter. Notera vem som tillfrågats
-4. **Förmöte med den enskilde**: frågor för att förbereda: vad vill hen uppnå, vem ska vara med, vad ska INTE tas upp
+4. **Förmöte med den enskilde**: frågor för att förbereda: vad vill den enskilde uppnå, vem ska vara med, vad ska INTE tas upp
 5. **Praktiska förutsättningar**: plats, tid, längd, kommunikationsstöd, tolk
 
 **Del 2: Mötesagenda**
@@ -73,10 +78,14 @@ Sekretessnivåer: [samtycke till informationsdelning inhämtat ja/nej/delvis]
 15. **Insatser**: tabell: insats, ansvarig verksamhet/person, frekvens, startdatum
 16. **Informationsdelning**: vilken information som delas mellan verksamheter
 17. **Uppföljning**: datum för uppföljande SIP, vem sammankallar
-18. **Den enskildes egen kommentar**: utrymme där hen kan notera vad som är viktigt
+18. **Den enskildes egen kommentar**: utrymme där den enskilde kan notera vad som är viktigt
 19. **Beslut om planens delning**: var planen dokumenteras (journal, socialtjänstsystem, övrigt)
 ```
 
 ## Användning
 
 Initiera alltid SIP i samråd med den enskilde. Samtycke till informationsdelning måste inhämtas innan deltagare får information om varandras områden. Planen följs upp regelbundet, en SIP som inte revideras är död.
+
+## Testresultat
+
+- **Claude Opus 5.5:** ★★★★★: Testad med ett fiktivt fall (78-åring som skrivs hem från sjukhus). Angav lagstödet som HSL 16 kap. 4 § och socialtjänstlagen (2025:400) 10 kap. 8 §, kopplade till lagen om samverkan vid utskrivning och lät den enskilde äga mötet och agendan.

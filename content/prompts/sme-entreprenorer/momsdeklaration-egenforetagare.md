@@ -6,10 +6,15 @@ source_url: https://www.skatteverket.se/foretag/moms
 source_author: Skatteverket, Moms
 source_lang: sv
 rating: 4.3
-version: "1.0"
+version: "1.1"
 tested_models:
-  - claude-haiku-4-5
-tested_date: 2026-04-18
+  - claude-opus-5-5
+tested_date: 2026-11-17
+updated_at: 2026-11-17
+changelog:
+  - version: "1.1"
+    date: 2026-11-17
+    change: "Momsen på livsmedel anges som tillfälligt sänkt till 6 procent från 1 april 2026 till och med 31 december 2027. Omtestad."
 tags:
   - moms
   - skatteverket
@@ -37,7 +42,7 @@ Momsregistreringsnummer: [organisationsnummer, om relevant]
 Momsperiod: [kvartal, månad, år]
 Bokföringssystem: [Fortnox, Visma eEkonomi, Björn Lundén, Excel, annat]
 Periodens transaktioner: [antal kundfakturor, antal leverantörsfakturor, uppskattad omsättning]
-Momssatser som är relevanta: [25 procent standardmoms, 12 procent livsmedel/hotell, 6 procent böcker/tidningar/transport, 0 procent export inom EU/utom EU]
+Momssatser som är relevanta: [25 procent standardmoms, 12 procent hotell, restaurang och livsmedel, 6 procent böcker, tidningar och persontransport (livsmedel tillfälligt 6 procent från 1 april 2026 till och med 31 december 2027), 0 procent export inom EU/utom EU]
 Omvänd skattskyldighet: [om vi köpt varor/tjänster från EU eller utomlands, ja/nej]
 Upplösningsmoms: [investeringar vi köpt och ska dra av momsen på]
 Föregående period: [återbetalning eller att betala: för jämförelse]
@@ -71,3 +76,9 @@ Osäkra poster: [transaktioner där jag är osäker på moms-hanteringen]
 ## Användning
 
 Deklarationen är ALLTID företagarens ansvar, denna prompt hjälper med strukturen, men kontrollen ska alltid göras mot Skatteverkets senaste regler. Vid osäkerhet: kontakta redovisningskonsult eller ring Skatteverkets företagarservice innan inskick.
+
+Momsen på livsmedel är tillfälligt sänkt från 12 till 6 procent från 1 april 2026 till och med 31 december 2027 ([prop. 2025/26:55](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/tillfalligt-sankt-mervardesskatt-pa-livsmedel_hd0355/html/)), medan restaurangtjänster har kvar 12 procent. Kontrollera aktuell sats hos [Skatteverket](https://www.skatteverket.se/foretag/moms/saljavarorochtjanster/momssatspavarorochtjanster.4.58d555751259e4d66168000409.html) för perioden du deklarerar, särskilt om den sträcker sig över ett datum när en sats ändras.
+
+## Testresultat
+
+- **Claude Opus 5.5:** ★★★★★: Testad med två fiktiva fall (enskild firma med konsulttjänster och sylt). För kvartal 2 2026 redovisades sylten med 6 procent och för kvartal 1 2028 med 12 procent, eftersom den tillfälliga sänkningen gällde till och med 31 december 2027.

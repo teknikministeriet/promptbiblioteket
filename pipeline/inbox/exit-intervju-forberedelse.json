@@ -7,7 +7,8 @@
   "source_lang": "sv",
   "tags": ["exit-intervju", "HR", "personalomsättning", "organisation", "kultur"],
   "rating": 4.2,
-  "tested_models": [],
+  "tested_models": ["claude-opus-5-5"],
+  "tested_date": "2026-11-17",
   "purpose": "Hjälper HR eller chef förbereda exit-intervju som faktiskt ger ärliga svar och användbara insikter. Separerar beteendebaserade frågor från värderingsfrågor, hanterar GDPR-aspekter och återrapportering.",
   "usage": "Kör förberedelse 2–3 dagar innan samtalet. Välj genomförare med omsorg, chefen är sällan rätt person om medarbetaren slutar missnöjt. Sammanställ insikter kvartalsvis för att se mönster."
 }

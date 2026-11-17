@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-16T16:48:34.103Z",
+  "generated_at": "2026-11-17T15:37:36.301Z",
   "categories": [
     {
       "id": "administration-ea",
@@ -192,9 +192,9 @@
             "ekonomi"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "snabbmejl",
@@ -320,9 +320,9 @@
             "kundfordringar"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "forklara-ekonomi-for-styrelsen",
@@ -695,9 +695,9 @@
             "hr"
           ],
           "tested_models": [
-            "claude-opus-4-7"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "ai-rekrytering-kandidattransparens",
@@ -712,9 +712,9 @@
             "kandidat"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "exit-intervju-forberedelse",
@@ -728,8 +728,10 @@
             "organisation",
             "kultur"
           ],
-          "tested_models": [],
-          "tested_date": null
+          "tested_models": [
+            "claude-opus-5-5"
+          ],
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "jobbannons-som-attraherar-ratt-profil",
@@ -761,9 +763,9 @@
             "kompetensförsörjning"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "loneforhandling-forberedelse-chef",
@@ -778,9 +780,9 @@
             "lönesättning"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "onboarding-30-60-90",
@@ -829,9 +831,9 @@
             "arbetsmiljö"
           ],
           "tested_models": [
-            "claude-opus-4-7"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-17T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "strukturerad-intervjuguide",
@@ -889,9 +891,9 @@
             "compliance"
           ],
           "tested_models": [
-            "claude-opus-4-7"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-16T00:00:00.000Z"
         },
         {
           "slug": "ai-riskanalys-ai-act",
@@ -906,9 +908,9 @@
             "juridik"
           ],
           "tested_models": [
-            "claude-opus-4-7"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "avtalsgranskning-av-konsultavtal",
@@ -956,9 +958,9 @@
             "beslutsstöd"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "gdpr-snabbkoll",
@@ -1041,9 +1043,9 @@
             "policy"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "yttrandestrukturerare",
@@ -1666,9 +1668,9 @@
             "egenföretagare"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "no-code-mvp-avgransning",
@@ -1795,13 +1797,13 @@
             "AI-verktyg"
           ],
           "tested_models": [
-            "claude-opus-4-7"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "bedomning-mot-kunskapskrav",
-          "title": "Bedömning mot kunskapskrav: betygsunderlag enligt Lgr22 eller GY2025",
+          "title": "Bedömning mot betygskriterier: betygsunderlag enligt Lgr22 eller Gy25",
           "file": "utbildning-pedagogik/bedomning-mot-kunskapskrav.md",
           "rating": 4.3,
           "tags": [
@@ -1812,9 +1814,9 @@
             "GY2025"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "expertintervju",
@@ -2010,9 +2012,9 @@
             "IVO"
           ],
           "tested_models": [
-            "claude-opus-4-7"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-17T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "lss-bedomningssamtal",
@@ -2129,9 +2131,9 @@
             "samverkan"
           ],
           "tested_models": [
-            "claude-haiku-4-5"
+            "claude-opus-5-5"
           ],
-          "tested_date": "2026-04-18T00:00:00.000Z"
+          "tested_date": "2026-11-17T00:00:00.000Z"
         },
         {
           "slug": "smartskattning-dokumentation",

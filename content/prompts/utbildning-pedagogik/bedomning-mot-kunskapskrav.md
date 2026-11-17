@@ -1,15 +1,20 @@
 ---
-title: "Bedömning mot kunskapskrav: betygsunderlag enligt Lgr22 eller GY2025"
+title: "Bedömning mot betygskriterier: betygsunderlag enligt Lgr22 eller Gy25"
 slug: bedomning-mot-kunskapskrav
 category: utbildning-pedagogik
 source_url: https://www.skolverket.se/
-source_author: Skolverket (kunskapskrav Lgr22/GY2025)
+source_author: Skolverket (betygskriterier Lgr22 och Gy25)
 source_lang: sv
 rating: 4.3
-version: "1.0"
+version: "1.1"
 tested_models:
-  - claude-haiku-4-5
-tested_date: 2026-04-18
+  - claude-opus-5-5
+tested_date: 2026-11-17
+updated_at: 2026-11-17
+changelog:
+  - version: "1.1"
+    date: 2026-11-17
+    change: "Kunskapskrav ersatt med betygskriterier, som är begreppet i Lgr22 och Gy25. Beteckningen GY2025 ändrad till Gy25 i texten. Omtestad."
 tags:
   - bedömning
   - kunskapskrav
@@ -20,7 +25,7 @@ tags:
 
 ## Syfte
 
-Hjälper lärare bygga transparent betygsunderlag genom att koppla observationer till specifika formuleringar i kunskapskraven. Skiljer observation från tolkning, flaggar bedömningsluckor, och genererar formuleringar för utvecklingssamtal.
+Hjälper lärare bygga transparent betygsunderlag genom att koppla observationer till specifika formuleringar i betygskriterierna. Med Lgr22 bytte kunskapskraven namn till [betygskriterier](https://www.skolverket.se/styrning-och-ansvar/forandringar-inom-skolomradet/sidor-tidigare-forandringar/nya-kurs--och-laroplaner-lgr22), och i gymnasiets läroplan Gy25 bedöms eleven mot [nationella betygskriterier](https://www.skolverket.se/undervisning/gymnasieskolan/laroplan-gy25-for-gymnasieskolan) för varje ämne. Skiljer observation från tolkning, flaggar bedömningsluckor, och genererar formuleringar för utvecklingssamtal.
 
 ## Prompt
 
@@ -29,34 +34,39 @@ Hjälper lärare bygga transparent betygsunderlag genom att koppla observationer
 Du är lärare som arbetar med betygsättning. Perspektiv: bygga transparent betygsunderlag som kan motiveras för elev, vårdnadshavare och kollegor.
 
 # Uppgift
-Analysera en elevs arbete mot aktuella kunskapskrav och producera ett betygsunderlag. Koppla observationer från elevens prestationer till specifika formuleringar i kunskapskraven, utan att själv sätta ett slutgiltigt betyg.
+Analysera en elevs arbete mot aktuella betygskriterier och producera ett betygsunderlag. Koppla observationer från elevens prestationer till specifika formuleringar i betygskriterierna, utan att själv sätta ett slutgiltigt betyg.
 
 # Kontext
-Ämne och årskurs: [t.ex. svenska åk 9, samhällskunskap gymnasiet kurs 1b]
-Läroplan: [Lgr22 eller GY2025]
-Kunskapskrav som ska bedömas: [klistra in de relevanta formuleringarna från kursplanen]
+Ämne och årskurs: [t.ex. svenska åk 9, samhällskunskap i gymnasieskolan]
+Läroplan: [Lgr22 eller Gy25]
+Betygskriterier som ska bedömas: [klistra in de relevanta formuleringarna från kursplanen eller ämnesplanen]
 Elevens arbete: [beskriv: enskilda arbeten, prov, muntliga redovisningar, gruppuppgifter: lista med datum om möjligt]
 Konkreta observationer: [exempel på vad eleven visat, citat, bedömningsanteckningar]
 Särskilt stöd eller anpassningar: [om det finns]
 
 # Regler
 - Skilj TYDLIGT mellan observation och tolkning. Observation: "eleven kopplar industriella revolutionen till miljöfrågan." Tolkning: "visar välutvecklad förmåga att se orsakssamband."
-- Använd de exakta orden från kunskapskravet ("i huvudsak", "utvecklat", "välutvecklat", "mer utvecklat")
+- Lgr22 och Gy25 talar om betygskriterier, inte kunskapskrav som i Lgr11
+- Använd de exakta värdeorden från de inklistrade betygskriterierna, hitta inte på egna nivåord
 - Sätt INTE ett slutgiltigt betyg, leverera underlag som läraren kan grunda sitt beslut på
-- Flagga om det finns kunskapskrav som ännu inte kunnat bedömas
+- Flagga om det finns betygskriterier som ännu inte kunnat bedömas
 - Balansera styrkor och utvecklingsområden, lika mycket plats åt båda
 - Var konkret, "eleven behöver utvecklas" utan exempel hjälper inte
 - Svenska utan tankstreck i brödtext
 
 # Utdataformat
 1. **Sammanfattning av elevens prestationer**: 3–5 meningar, konkreta observationer
-2. **Kunskapskrav per kunskapskrav**: tabell med kolumner: kunskapskrav (citat), elevens prestation (observation), tolkning mot nivåerna (i huvudsak / utvecklat / välutvecklat)
+2. **Kriterium för kriterium**: tabell med kolumner: betygskriterium (citat), elevens prestation (observation), tolkning mot kriterierna för E, C och A
 3. **Särskilt starka områden**: 2–3 områden där eleven visar stabil hög nivå
 4. **Utvecklingsområden**: 2–3 områden med konkret förslag på nästa steg
-5. **Underlag som saknas**: kunskapskrav där det ännu inte finns tillräckligt för bedömning
+5. **Underlag som saknas**: betygskriterier där det ännu inte finns tillräckligt för bedömning
 6. **Förslag på formulering i utvecklingssamtal**: 2–3 meningar läraren kan använda direkt med eleven eller vårdnadshavare
 ```
 
 ## Användning
 
-Klistra in kunskapskraven från aktuell kursplan (Skolverkets webbplats). Samla konkreta observationer över terminen innan du kör prompten. Prompten ersätter inte lärarens professionella bedömning, den strukturerar underlaget.
+Klistra in betygskriterierna från aktuell kurs- eller ämnesplan (Skolverkets webbplats). Samla konkreta observationer över terminen innan du kör prompten. Prompten ersätter inte lärarens professionella bedömning, den strukturerar underlaget.
+
+## Testresultat
+
+- **Claude Opus 5.5:** ★★★★★: Testad med ett fiktivt fall (samhällskunskap åk 9, Lgr22). Använde bara begreppet betygskriterier och de inklistrade värdeorden, skilde observation från tolkning och flaggade underlag som saknas.

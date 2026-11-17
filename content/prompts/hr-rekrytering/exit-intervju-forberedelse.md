@@ -5,7 +5,15 @@ category: hr-rekrytering
 source_author: Teknikministeriet
 source_lang: sv
 rating: 4.2
-version: "1.0"
+version: "1.1"
+tested_models:
+  - claude-opus-5-5
+tested_date: 2026-11-17
+updated_at: 2026-11-16
+changelog:
+  - version: "1.1"
+    date: 2026-11-16
+    change: "Testad mot Claude Opus 5.5 och testresultat tillagt."
 tags:
   - exit-intervju
   - HR
@@ -61,3 +69,7 @@ Säkerhet och förtroende: [t.ex. om medarbetaren slutat pga konflikt, behövs e
 ## Användning
 
 Kör förberedelse 2–3 dagar innan samtalet. Välj genomförare med omsorg, chefen är sällan rätt person om medarbetaren slutar missnöjt. Sammanställ insikter kvartalsvis för att se mönster.
+
+## Testresultat
+
+- **Claude Opus 5.5:** ★★★★★: Testad med ett fiktivt fall (säljare som går till en konkurrent, spänd relation till chefen). Ställde frågor om situationer i stället för om chefen som person och lät medarbetaren läsa sammanfattningen innan chefen får den.

@@ -6,10 +6,15 @@ source_url: https://www.skatteverket.se/
 source_author: Skatteverkets traktamentsregler
 source_lang: sv
 rating: 4.2
-version: "1.0"
+version: "1.1"
 tested_models:
-  - claude-haiku-4-5
-tested_date: 2026-04-18
+  - claude-opus-5-5
+tested_date: 2026-11-17
+updated_at: 2026-11-17
+changelog:
+  - version: "1.1"
+    date: 2026-11-17
+    change: "Det inaktuella traktamentet på 280 kr ersatt med Skatteverkets belopp för resans år, som användaren fyller i. Kvittogränsen, som inte är en regel från Skatteverket, ersatt med företagets resepolicy. Omtestad."
 tags:
   - reseräkning
   - traktamente
@@ -39,14 +44,15 @@ Logi: [hotell, egen övernattning hos bekant]
 Kvitton: [lista eller beskrivning av samlade kvitton]
 Måltider som bjudits av värd: [datum, måltid: styr traktamentsavdrag]
 Resepolicy: [företagets resepolicy om finns]
-Traktamentsnivå: [Sverige 280 kr/dag, utlandstraktamente enligt Skatteverkets tabell]
+Traktamente och bilersättning: [Skatteverkets schablonbelopp för resans år: hel dag, halv dag och kr per mil; utlandstraktamente enligt Skatteverkets tabell för landet]
 
 # Regler
 - Följ Skatteverkets traktamentsregler, hel dag, halv dag, nedsättning vid fri kost (frukost 20 procent, lunch 35 procent, middag 35 procent)
 - Utlandstraktamente enligt Skatteverkets tabell för land
-- Bilersättning: skattefri del 25 kr/mil (2026), överskjutande beskattas
+- Bilersättning: skattefri del enligt Skatteverkets schablon för året, överskjutande del beskattas
+- Räkna med beloppen i kontexten. Saknas ett belopp, skriv [BELOPP FÖR ÅRET] och gissa inte
 - Representation: företag bjuder = reducerad avdragsrätt enligt Skatteverkets regler
-- Kvitto krävs för belopp över 100 kr (exklusive representation där alltid kvitto)
+- Kvittokrav enligt företagets resepolicy, representation kräver alltid kvitto. Saknas kvitto, ta upp det under Kvitton som saknas
 - Skilj på PRIVAT och TJÄNST, kvällsmat på egen hand efter konferens räknas
 - Svenska belopp och datum
 
@@ -64,4 +70,8 @@ Traktamentsnivå: [Sverige 280 kr/dag, utlandstraktamente enligt Skatteverkets t
 
 ## Användning
 
-Samla alla kvitton innan du kör prompten. Fyll i resenär, resa och kvitton, prompten strukturerar resten. Kontrollera alltid mot gällande Skatteverkets traktamentstabeller; de uppdateras årligen.
+Samla alla kvitton innan du kör prompten. Fyll i resenär, resa och kvitton, prompten strukturerar resten. Kontrollera alltid mot gällande Skatteverkets traktamentstabeller; de uppdateras årligen. Hämta årets schablonbelopp innan du kör prompten: [traktamente](https://www.skatteverket.se/privat/skatter/arbeteochinkomst/traktamente.4.dfe345a107ebcc9baf80006547.html) och bilersättning under [belopp och procent](https://www.skatteverket.se/privat/skatter/beloppochprocent.4.18e1b10334ebe8bc80004109.html) hos Skatteverket.
+
+## Testresultat
+
+- **Claude Opus 5.5:** ★★★★★: Testad med två fiktiva fall (tre dagar i Göteborg, bjuden lunch, egen bil till stationen). Med årets belopp ifyllda räknade den traktamentet rätt, med 35 procents avdrag för lunchen. Utan belopp skrev den [BELOPP FÖR ÅRET] i stället för att gissa och räknade med andelar av beloppet.
