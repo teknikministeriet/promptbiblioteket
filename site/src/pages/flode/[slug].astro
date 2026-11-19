@@ -4,6 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection, render } from 'astro:content';
 import { getCategoryById } from '../../lib/categories';
 import { levelLabels } from '../../lib/flows';
+import { groupPromptsByTag } from '../../lib/prompts';
 
 export async function getStaticPaths() {
   const allFlows = await getCollection('flows');
@@ -18,6 +19,8 @@ export async function getStaticPaths() {
 const { flow, allPrompts } = Astro.props;
 const { data } = flow;
 const category = getCategoryById(data.category);
+// Flödestaggar utan prompts har ingen taggsida och visas därför utan länk.
+const taggedPages = groupPromptsByTag(allPrompts);
 
 const { Content } = await render(flow);
 
@@ -78,7 +81,9 @@ const jsonLd = {
       <div class="flex flex-wrap gap-2 mb-6">
         {data.tags.map((tag: string) => (
           <>
-            <a href={`/tagg/${tag}/`} class="tag no-underline">{tag}</a>{' '}
+            {taggedPages.has(tag)
+              ? <a href={`/tagg/${tag}/`} class="tag no-underline">{tag}</a>
+              : <span class="tag">{tag}</span>}{' '}
           </>
         ))}
       </div>

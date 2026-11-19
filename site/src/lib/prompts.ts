@@ -1,4 +1,19 @@
 /**
+ * Gruppera prompts per tagg. Taggsidorna byggs ur denna karta, så en tagg
+ * har en sida under /tagg/ bara om den finns här (exakt stavning).
+ */
+export function groupPromptsByTag<T extends { data: { tags?: string[] } }>(prompts: T[]): Map<string, T[]> {
+  const tagMap = new Map<string, T[]>();
+  for (const p of prompts) {
+    for (const tag of p.data.tags || []) {
+      if (!tagMap.has(tag)) tagMap.set(tag, []);
+      tagMap.get(tag)!.push(p);
+    }
+  }
+  return tagMap;
+}
+
+/**
  * Extract the raw prompt text from a markdown body.
  * Prompts are wrapped in ```txt blocks.
  */

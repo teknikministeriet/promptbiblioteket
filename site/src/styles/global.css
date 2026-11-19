@@ -101,7 +101,7 @@ body {
   transition: background-color 0.15s;
 }
 
-.tag:hover {
+a.tag:hover {
   background: var(--color-tm-accent);
   color: #111827;
 }
