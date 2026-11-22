@@ -98,6 +98,7 @@ När en prompt är publicerad är `.md`-filen i `content/prompts/` originalet. J
 - **Typ:** Statisk sajt (Astro 7 + nginx), Pagefind för sökning
 - **Deploy:** `./scripts/deploy.sh`: manuell, verify → build → rsync
 - **SSL:** Let's Encrypt via Certbot
+- **Fonter:** hostas lokalt i `site/public/fonts/` och deklareras i `Base.astro`, aldrig via Google Fonts (det skickar besökarens IP-adress till Google). OFL-licenserna ligger i `licenser/` bredvid filerna.
 - **CI utan CD**: `.github/workflows/ci.yml` provar varje PR och push till main (verify, säkerhetsgranskning med `scripts/audit.js`, bygge). Deploy sker fortfarande från lokal maskin
 
 ## Social card (Open Graph)
@@ -105,7 +106,8 @@ När en prompt är publicerad är `.md`-filen i `content/prompts/` originalet. J
 `site/public/og-image.png` (1200×630) sätts för alla sidor i
 `site/src/layouts/Base.astro`. Bilden är genererad, inte handritad: redigera
 `site/og/og-image.html` och kör `./site/og/render.sh`, redigera aldrig PNG:en
-direkt. Rendering kräver Chrome och nätverk (fonter hämtas från Google Fonts).
+direkt. Rendering kräver Chrome men inget nätverk: fonterna ligger lokalt i
+`site/og/fonts/` och `site/public/fonts/`.
 
 PNG är gitignorad generellt, `og-image.png` har ett explicit undantag i
 `.gitignore` så den går att committa utan `-f`.

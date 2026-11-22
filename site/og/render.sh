@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Renderar OG-kortet (site/og/og-image.html) till site/public/og-image.png, 1200x630.
-# Kräver Google Chrome och nätverk (fonter hämtas från Google Fonts vid rendering).
+# Kräver Google Chrome. Fonterna ligger lokalt (site/og/fonts/ och site/public/fonts/).
 set -euo pipefail
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
