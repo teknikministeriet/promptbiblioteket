@@ -25,7 +25,7 @@ rsync -avz --delete --chmod=a+rX "$LOCAL_DIST" "$REMOTE_HOST:$REMOTE_PATH/"
 # 4. Smoketest: root + kritiska sidor/assets måste svara 200
 echo "[4/4] Smoketest..."
 BASE="https://prompts.teknikministeriet.se"
-for path in / /og-image.png /forsaljning/; do
+for path in / /og-image.png /forsaljning/ /fonts/jetbrains-mono-latin.woff2; do
   STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "$BASE$path" 2>/dev/null || echo "000")
   if [ "$STATUS" != "200" ]; then
     echo "FAIL: $BASE$path → $STATUS"
