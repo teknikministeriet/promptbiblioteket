@@ -1,0 +1,51 @@
+---
+title: "Hämtat eller räknat: kontrollfråga om AI:ns siffror"
+slug: hamtat-eller-raknat-kontrollfraga
+category: ekonomi-finans
+source_url: https://www.teknikministeriet.se
+source_author: Teknikministeriet
+source_lang: sv
+rating: 4.4
+version: "1.0"
+tested_models:
+  - claude-sonnet-5-5
+tested_date: 2026-11-26
+tags:
+  - granskning
+  - källhänvisning
+  - kontrollfråga
+  - controller
+  - ekonomi
+---
+
+## Syfte
+
+En följdfråga som skiljer de siffror AI:n har hämtat ur ditt underlag från dem den har räknat fram själv, med sida, cell eller rad för de hämtade och uträkningen för de andra. Siffror som varken står i underlaget eller går att räkna fram märks som att de saknar källa. Kontrollfrågan används i Teknikministeriets ekonomiutbildningar och är strukturerad enligt Promptbibliotekets mall.
+
+## Prompt
+
+```txt
+# Roll
+Du granskar ditt eget senaste svar. Perspektiv: den som läser ska kunna kontrollera varje siffra mot underlaget innan svaret lämnas vidare.
+
+# Uppgift
+Vilka av siffrorna i ditt senaste svar har du hämtat direkt ur underlaget, och vilka har du räknat fram själv? Lista dem var för sig och ange sida, cell eller rad för de hämtade.
+
+# Regler
+- Ta med varje siffra i svaret: belopp, procent, antal och datum.
+- Hämtad: ange sidan som den är numrerad i dokumentet, eller cell eller rad, och citera etiketten eller raden ordagrant så att jag kan söka upp den.
+- Uträknad: visa uträkningen med de hämtade siffrorna.
+- Står en siffra varken i underlaget eller går att räkna fram ur det, märk den "saknar källa" och säg var den kom ifrån.
+- Ändra inte svaret. Lista det du upptäcker under tabellen.
+
+# Utdataformat
+Tabell med kolumnerna Siffra, Typ (hämtad, uträknad eller saknar källa) och Källa eller uträkning. Under tabellen: högst tre siffror som jag bör kontrollera först, med skälet.
+```
+
+## Användning
+
+Ställ frågan i samma chatt direkt efter ett svar med siffror, medan underlaget fortfarande är bifogat eller inklistrat. Kontrollera de uträknade siffrorna själv och sök upp två av de hämtade i dokumentet. Sök på beloppet eller citatet med sökfunktionen i stället för att bläddra, eftersom det tryckta sidnumret ofta skiljer sig från sidan i PDF-läsaren. En siffra som saknar källa stryks eller beläggs innan svaret lämnas vidare. Fungerar efter till exempel Budgetjämförelse mellan två år i en rapport eller Snabb avvikelseanalys.
+
+## Testresultat
+
+- **Claude Sonnet 5.5:** ★★★★☆: Testad i två fall. Efter en budgetjämförelse i en offentlig verksamhetsplan på 72 sidor delade svaret upp siffrorna i 22 rader hämtade, med tryckt sida och ordagrant citat, och 19 rader uträknade, med uträkning. Stickproven mot PDF:en stämde, och modellen pekade själv ut en osäker omräkning. En felaktig uppgift om sidan i PDF-filen märktes inte som att den saknar källa, bara som att den inte står i dokumentet. I ett felfall med ett fiktivt budgetunderlag och en planterad siffra om löneavtal märktes den planterade siffran som att den saknar källa, och övriga siffror delades rätt i hämtade och uträknade.

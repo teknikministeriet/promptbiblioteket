@@ -731,8 +731,26 @@
       "category": "ekonomi-finans",
       "rating": 4.2,
       "rated_at": "2026-06-17T12:26:28.998Z"
+    },
+    {
+      "slug": "hamtat-eller-raknat-kontrollfraga",
+      "category": "ekonomi-finans",
+      "rating": 4.4,
+      "rated_at": "2026-11-26T17:33:22.230Z"
+    },
+    {
+      "slug": "bilder-till-ledningsgruppen-ur-text",
+      "category": "ekonomi-finans",
+      "rating": 4.2,
+      "rated_at": "2026-11-26T17:33:28.491Z"
+    },
+    {
+      "slug": "budgetjamforelse-tva-ar-i-rapport",
+      "category": "ekonomi-finans",
+      "rating": 4.2,
+      "rated_at": "2026-11-26T17:34:16.192Z"
     }
   ],
   "schema_version": "1.0.0",
-  "updated_at": "2026-06-17T12:26:28.998Z"
+  "updated_at": "2026-11-26T17:34:16.192Z"
 }

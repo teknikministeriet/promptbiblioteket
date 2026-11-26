@@ -1,0 +1,31 @@
+{
+  "title": "Budgetjämförelse mellan två år i en rapport",
+  "slug": "budgetjamforelse-tva-ar-i-rapport",
+  "category": "ekonomi-finans",
+  "source_author": "Teknikministeriet",
+  "source_url": "https://www.teknikministeriet.se",
+  "source_lang": "sv",
+  "version": "1.0",
+  "tested_models": [
+    "claude-sonnet-5-5"
+  ],
+  "tested_date": "2026-11-26",
+  "prompt": "# Roll\nDu är controller och läser en budget åt ledningsgruppen. Perspektiv: ledningen ska förstå vad som förändras mellan åren, och varje belopp ska gå att hitta i dokumentet.\n\n# Uppgift\nJämför budgeten för [ÅR 2] med budgeten för [ÅR 1] i det bifogade dokumentet och visa de [ANTAL, t.ex. fem] poster som förändras mest.\n\n# Kontext\nDokument: [bifoga PDF:en, till exempel verksamhetsplan, budget eller årsredovisning]\nTabell: [till exempel Resultatbudget, eller lämna tomt om du inte vet var den står]\nMottagare: [till exempel ledningsgruppen eller nämnden]\nEnhet: [till exempel miljoner kronor]\n\n# Regler\n- Hämta beloppen ur dokumentet och räkna förändringarna ur dem. Saknas ett år eller en post, skriv det i stället för att uppskatta.\n- Rangordna efter förändringens storlek i kronor, oavsett om posten ökar eller minskar.\n- Ta med enskilda intäkts- och kostnadsposter i tabellen. Summeringsrader som verksamhetens intäkter, kostnader och resultat visas för sig under tabellen.\n- Kostnader står ofta med minustecken. Skriv därför i ord om posten ökar eller minskar.\n- Ange sidorna med det sidnummer som står tryckt i dokumentet, och bara det.\n- Orsaker: ta bara med orsaker som dokumentet självt anger, med sida. Andra möjliga orsaker skrivs som frågor till verksamheten.\n\n# Utdataformat\n1. Tabell med kolumnerna Post, [ÅR 1], [ÅR 2], Förändring (ökar eller minskar, belopp) och Förändring i procent, sorterad på störst förändring\n2. Summeringsraderna för båda åren\n3. Högst tre meningar om vad förändringarna betyder för mottagaren\n4. Orsaker enligt dokumentet med sida, och frågor till verksamheten",
+  "purpose": "Hittar de poster som förändras mest mellan två budgetår i en lång rapport, till exempel en verksamhetsplan, budget eller årsredovisning i PDF, och rangordnar dem i en tabell med tryckt sidnummer. Orsaker som rapporten själv anger hålls isär från frågor till verksamheten. För controllers som ska förklara budgeten för ledningsgruppen eller nämnden.",
+  "usage": "Bifoga PDF:en och fyll i åren, antalet poster och vilken tabell det gäller. Vet du inte var tabellen står, lämna raden tom. Ställ sedan Hämtat eller räknat: kontrollfråga om AI:ns siffror i samma chatt och sök upp två av beloppen i dokumentet. Sök på beloppet med sökfunktionen, eftersom det tryckta sidnumret ofta skiljer sig från sidan i PDF-läsaren. Frågorna till verksamheten tar du med till dem som äger posterna.",
+  "tags": [
+    "budget",
+    "analys",
+    "ledningsgrupp",
+    "controller",
+    "ekonomi"
+  ],
+  "rating": 4.2,
+  "test_results": [
+    {
+      "model": "Claude Sonnet 5.5",
+      "score": 4,
+      "comment": "Testad på en offentlig verksamhetsplan i PDF på 72 sidor, med budget för två år i följd. De fem posterna, beloppen och summeringsraderna stämde mot dokumentet, i en gemensam rangordning för intäkter och kostnader och med ökning eller minskning i ord. Orsakerna fick tryckt sida, och alla sidor stämde vid kontroll. En mening om vad förändringarna betyder räknade fel med 5 miljoner kronor, eftersom avskrivningarna inte kom med, så kör Hämtat eller räknat efteråt. En kort fråga om samma dokument gav två tabeller utan gemensam rangordning och orsaker utan sida."
+    }
+  ]
+}

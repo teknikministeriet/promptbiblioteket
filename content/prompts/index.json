@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-17T22:12:57.102Z",
+  "generated_at": "2026-11-26T17:34:16.206Z",
   "categories": [
     {
       "id": "administration-ea",
@@ -237,7 +237,7 @@
       "title": "Ekonomi & finans",
       "description": "Prompts för ekonomer, controllers, revisorer och finansanalytiker. Budget, rapportering, analys och revision.",
       "priority": 99,
-      "prompt_count": 13,
+      "prompt_count": 16,
       "prompts": [
         {
           "slug": "arsbokslut-forberedelse-k2-k3",
@@ -291,6 +291,40 @@
           "tested_date": "2026-04-14T00:00:00.000Z"
         },
         {
+          "slug": "bilder-till-ledningsgruppen-ur-text",
+          "title": "Bilder till ledningsgruppen ur en text med siffror",
+          "file": "ekonomi-finans/bilder-till-ledningsgruppen-ur-text.md",
+          "rating": 4.2,
+          "tags": [
+            "presentation",
+            "ledningsgrupp",
+            "beslutsunderlag",
+            "controller",
+            "ekonomi"
+          ],
+          "tested_models": [
+            "claude-sonnet-5-5"
+          ],
+          "tested_date": "2026-11-26T00:00:00.000Z"
+        },
+        {
+          "slug": "budgetjamforelse-tva-ar-i-rapport",
+          "title": "Budgetjämförelse mellan två år i en rapport",
+          "file": "ekonomi-finans/budgetjamforelse-tva-ar-i-rapport.md",
+          "rating": 4.2,
+          "tags": [
+            "budget",
+            "analys",
+            "ledningsgrupp",
+            "controller",
+            "ekonomi"
+          ],
+          "tested_models": [
+            "claude-sonnet-5-5"
+          ],
+          "tested_date": "2026-11-26T00:00:00.000Z"
+        },
+        {
           "slug": "excel-formel-power-query-ur-beskrivning",
           "title": "Excel-formel eller Power Query ur en beskrivning",
           "file": "ekonomi-finans/excel-formel-power-query-ur-beskrivning.md",
@@ -340,6 +374,23 @@
             "claude-haiku-4-5"
           ],
           "tested_date": "2026-04-14T00:00:00.000Z"
+        },
+        {
+          "slug": "hamtat-eller-raknat-kontrollfraga",
+          "title": "Hämtat eller räknat: kontrollfråga om AI:ns siffror",
+          "file": "ekonomi-finans/hamtat-eller-raknat-kontrollfraga.md",
+          "rating": 4.4,
+          "tags": [
+            "granskning",
+            "källhänvisning",
+            "kontrollfråga",
+            "controller",
+            "ekonomi"
+          ],
+          "tested_models": [
+            "claude-sonnet-5-5"
+          ],
+          "tested_date": "2026-11-26T00:00:00.000Z"
         },
         {
           "slug": "kassaflodesprognos",
@@ -2173,5 +2224,5 @@
       ]
     }
   ],
-  "total_prompts": 122
+  "total_prompts": 125
 }

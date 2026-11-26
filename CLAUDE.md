@@ -157,7 +157,7 @@ Säkerhetsuppdateringarna kräver att "Dependabot security updates" är påslage
 ```bash
 gh pr checkout <nr>
 cd site && npm install && node ../scripts/audit.js .   # ska ge 0 blockerande
-npm run build                         # ska ge 512 HTML-sidor (inklusive Search Console-filen), 133 indexerade
+npm run build                         # ska ge 518 HTML-sidor (inklusive Search Console-filen), 136 indexerade
 ```
 
 Dependabot bevakar **två** kataloger, roten och `/site`. En PR mot rotens
@@ -177,7 +177,7 @@ eget steg som repo-ägaren tar ställning till, inte något en session gör
 oombedd:
 
 ```bash
-gh pr review <nr> --approve --body "Testad lokalt: audit 0 blockerande, build 512/133."
+gh pr review <nr> --approve --body "Testad lokalt: audit 0 blockerande, build 518/136."
 gh pr merge <nr> --squash --delete-branch
 ```
 
